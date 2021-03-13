@@ -1,0 +1,61 @@
+apply plugin: 'com.android.library'
+
+def openCVersionName = "4.5.2-pre"
+def openCVersionCode = ((4 * 100 + 5) * 100 + 2) * 10 + 0
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 28
+
+        versionCode openCVersionCode
+        versionName openCVersionName
+
+        externalNativeBuild {
+            cmake {
+                arguments "-DANDROID_STL=c++_shared"
+                targets "opencv_jni_shared"
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            packagingOptions {
+                doNotStrip '**/*.so'  // controlled by OpenCV CMake scripts
+            }
+        }
+        release {
+            packagingOptions {
+                doNotStrip '**/*.so'  // controlled by OpenCV CMake scripts
+            }
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_6
+        targetCompatibility JavaVersion.VERSION_1_6
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            java.srcDirs = ['src']  // TODO Use original files instead of copied into build directory
+            aidl.srcDirs = ['src']
+            res.srcDirs = ['/Users/wangzy/study/opencv_452/opencv/modules/java/android_sdk/android_gradle_lib/res']
+            manifest.srcFile 'AndroidManifest.xml'
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path (project.projectDir.toString() + '/libcxx_helper/CMakeLists.txt')
+        }
+    }
+}
+
+dependencies {
+}

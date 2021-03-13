@@ -1,0 +1,35 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "org.opencv.samples.tutorial1"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 301
+        versionName "3.01"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            java.srcDirs = ['/Users/wangzy/study/opencv_452/opencv/samples/android/tutorial-1-camerapreview/src']
+            aidl.srcDirs = ['/Users/wangzy/study/opencv_452/opencv/samples/android/tutorial-1-camerapreview/src']
+            res.srcDirs = ['/Users/wangzy/study/opencv_452/opencv/samples/android/tutorial-1-camerapreview/res']
+            manifest.srcFile '/Users/wangzy/study/opencv_452/opencv/samples/android/tutorial-1-camerapreview/gradle/AndroidManifest.xml'
+            assets {
+                srcDirs '../../../study/opencv_452/opencv/samples/android/tutorial-1-camerapreview/gradle/assets', 'src/main/assets'
+            }
+        }
+    }
+}
+
+dependencies {
+    //implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':opencv')
+    implementation 'com.xm.permissions:XmPermissions:1.0.1'
+}

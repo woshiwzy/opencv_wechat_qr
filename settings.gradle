@@ -1,0 +1,6 @@
+
+include ':opencv'
+include ':wechat_qr'
+
+
+

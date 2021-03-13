@@ -1,0 +1,37 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml:2:1-4:12
+INJECTED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml:2:1-4:12
+INJECTED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml:2:1-4:12
+INJECTED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml:2:1-4:12
+INJECTED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml:2:1-4:12
+INJECTED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml:2:1-4:12
+INJECTED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml:2:1-4:12
+	package
+		ADDED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml:3:7-27
+		INJECTED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml
+		INJECTED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml
+		ADDED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml:2:1-4:12
+		INJECTED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml
+		ADDED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml:2:1-4:12
+		INJECTED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml:2:11-69
+uses-sdk
+INJECTED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml
+INJECTED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml
+INJECTED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml
+INJECTED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml
+		ADDED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml
+		INJECTED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml
+		ADDED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml
+		INJECTED from /Users/wangzy/Desktop/opencv_android/opencv/AndroidManifest.xml
