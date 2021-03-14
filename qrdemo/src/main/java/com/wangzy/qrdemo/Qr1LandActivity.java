@@ -62,11 +62,11 @@ public class Qr1LandActivity extends CameraActivity implements CvCameraViewListe
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.qr1_land);
-
         mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.tutorial1_activity_java_surface_view);
-        mOpenCvCameraView.mScale=2;
         mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
         mOpenCvCameraView.setCvCameraViewListener(this);
+
+        Log.e(TAG, "是否缩放" + (mOpenCvCameraView.mScale == 0 ? "不缩放" : "缩放"));
 
     }
 
@@ -108,13 +108,12 @@ public class Qr1LandActivity extends CameraActivity implements CvCameraViewListe
     }
 
     List<Mat> points = new ArrayList<>();
-    Scalar scalar=new Scalar(255,255,0,0);
+    Scalar scalar = new Scalar(255, 255, 0, 0);
 
     public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
 
         points.clear();
-        Mat rgba=inputFrame.rgba();
-
+        Mat rgba = inputFrame.rgba();
 
 
         List<String> results = weChatQRCode.detectAndDecode(inputFrame.gray(), points);
@@ -125,11 +124,11 @@ public class Qr1LandActivity extends CameraActivity implements CvCameraViewListe
 
         if (null != results && results.size() > 0) {
             Log.e(TAG, "识别的结果数量：" + results.size());
-            for(int i=0,isize=results.size();i<isize;i++){
-                Log.e(TAG,"=======>>>>>"+results.get(i));
+            for (int i = 0, isize = results.size(); i < isize; i++) {
+                Log.e(TAG, "=======>>>>>" + results.get(i));
                 Rect rect = Imgproc.boundingRect(points.get(i));
-                Imgproc.rectangle(rgba,rect,scalar,5);
-                Imgproc.putText(rgba,results.get(i),rect.tl(),0,1,scalar);
+                Imgproc.rectangle(rgba, rect, scalar, 5);
+                Imgproc.putText(rgba, results.get(i), rect.tl(), 0, 1, scalar);
             }
         }
 

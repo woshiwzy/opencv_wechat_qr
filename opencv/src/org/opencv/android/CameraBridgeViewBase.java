@@ -439,18 +439,22 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
             }
         }
 
-
-
         //改造后的代码======开始
-        if (modified.cols() < width || modified.rows() < height) {
-            float scaleWidth = width * 1.0f / modified.cols();
-            float scaleHeight = height * 1.0f / modified.rows();
-            float maxScale = Math.max(scaleHeight, scaleWidth);
 
-            mScale = maxScale;//用自带的缩放系数（当然也可以自己来缩放Mat 或者bitmap达到同样的效果）
-        } else {
-            mScale = 1.0f;
+        if(mScale==0){//不缩放
+
+        }else {
+            if (modified.cols() < width || modified.rows() < height) {
+                float scaleWidth = width * 1.0f / modified.cols();
+                float scaleHeight = height * 1.0f / modified.rows();
+                float maxScale = Math.max(scaleHeight, scaleWidth);
+
+                mScale = maxScale;//用自带的缩放系数（当然也可以自己来缩放Mat 或者bitmap达到同样的效果）
+            } else {
+                mScale = 1.0f;
+            }
         }
+
         //改造后的代码======结束
 
 
@@ -462,7 +466,6 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
                     Log.d(TAG, "mStretch value: " + mScale);
 
                 if (mScale != 0) {
-
 
                     canvas.drawBitmap(mCacheBitmap, new Rect(0, 0, mCacheBitmap.getWidth(), mCacheBitmap.getHeight()),
                             new Rect((int) ((canvas.getWidth() - mScale * mCacheBitmap.getWidth()) / 2),

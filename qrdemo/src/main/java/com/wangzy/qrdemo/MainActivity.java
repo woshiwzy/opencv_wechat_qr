@@ -4,10 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.xm.permissions.OnRequestPermissionsCallback;
 import com.xm.permissions.XmPermissions;
+
+import org.opencv.android.JavaCameraView;
 
 public class MainActivity extends Activity implements OnRequestPermissionsCallback {
 
@@ -30,19 +34,17 @@ public class MainActivity extends Activity implements OnRequestPermissionsCallba
             public void onClick(View v) {
                 buttonId = v.getId();
                 xmPermissions.requestAllPermissions();
-//                switch (v.getId()) {
-//                    case R.id.buttonDefault:
-//
-//                        break;
-//                    case R.id.buttonPortrait:
-//                        xmPermissions.requestAllPermissions();
-//                        break;
-//                }
             }
         };
         findViewById(R.id.buttonDefault).setOnClickListener(clickListener);
         findViewById(R.id.buttonPortrait).setOnClickListener(clickListener);
-        findViewById(R.id.buttonDefaultFullScreen).setOnClickListener(clickListener);
+
+        ((CheckBox) findViewById(R.id.checkBoxFullScreen)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                JavaCameraView.mScale = isChecked ? 2 : 0;
+            }
+        });
     }
 
 
@@ -70,9 +72,6 @@ public class MainActivity extends Activity implements OnRequestPermissionsCallba
         switch (buttonId) {
             case R.id.buttonDefault:
                 gotoActivity(MainActivity.this, Qr1LandActivity.class);
-                break;
-            case R.id.buttonDefaultFullScreen:
-                gotoActivity(MainActivity.this, Qr1LandFullScreenActivity.class);
                 break;
             case R.id.buttonPortrait:
                 gotoActivity(MainActivity.this, Qr1PortraitActivity.class);
