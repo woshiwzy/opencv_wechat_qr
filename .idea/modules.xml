@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/opencv_android.iml" filepath="$PROJECT_DIR$/.idea/modules/opencv_android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/opencv/opencv_android.opencv.iml" filepath="$PROJECT_DIR$/.idea/modules/opencv/opencv_android.opencv.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tutorial-1-camerapreview/opencv_android.wechat_qr.iml" filepath="$PROJECT_DIR$/.idea/modules/tutorial-1-camerapreview/opencv_android.wechat_qr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/opencv_qr.iml" filepath="$PROJECT_DIR$/.idea/modules/opencv_qr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/opencv/opencv_qr.opencv.iml" filepath="$PROJECT_DIR$/.idea/modules/opencv/opencv_qr.opencv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wechat_qr/opencv_qr.wechat_qr.iml" filepath="$PROJECT_DIR$/.idea/modules/wechat_qr/opencv_qr.wechat_qr.iml" />
     </modules>
   </component>
 </project>

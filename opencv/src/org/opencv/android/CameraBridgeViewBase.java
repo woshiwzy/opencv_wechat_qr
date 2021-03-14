@@ -515,6 +515,6 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
         }
 
         Log.e(TAG,"计算得到的摄像头分辨率:"+calcWidth+"x"+calcHeight);
-        return new Size(calcWidth, calcHeight);
+        return new Size(calcWidth, calcHeight); //return new Size(1920,1080)
     }
 }
