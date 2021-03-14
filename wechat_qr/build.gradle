@@ -24,10 +24,10 @@ android {
 
     sourceSets {
         main {
-            java.srcDirs = ['/Users/wangzy/study/opencv_452/opencv/samples/android/tutorial-1-camerapreview/src']
-            aidl.srcDirs = ['/Users/wangzy/study/opencv_452/opencv/samples/android/tutorial-1-camerapreview/src']
-            res.srcDirs = ['/Users/wangzy/study/opencv_452/opencv/samples/android/tutorial-1-camerapreview/res']
-            manifest.srcFile '/Users/wangzy/study/opencv_452/opencv/samples/android/tutorial-1-camerapreview/gradle/AndroidManifest.xml'
+            java.srcDirs = ['/Users/wangzy/study/opencv/opencv_452/opencv/samples/android/tutorial-1-camerapreview/src']
+            aidl.srcDirs = ['/Users/wangzy/study/opencv/opencv_452/opencv/samples/android/tutorial-1-camerapreview/src']
+            res.srcDirs = ['/Users/wangzy/study/opencv/opencv_452/opencv/samples/android/tutorial-1-camerapreview/res']
+            manifest.srcFile '/Users/wangzy/study/opencv/opencv_452/opencv/samples/android/tutorial-1-camerapreview/gradle/AndroidManifest.xml'
             assets {
                 srcDirs '../../../study/opencv_452/opencv/samples/android/tutorial-1-camerapreview/gradle/assets', 'src/main/assets'
             }

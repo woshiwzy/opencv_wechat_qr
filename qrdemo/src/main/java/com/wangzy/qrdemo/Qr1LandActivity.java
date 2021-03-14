@@ -14,7 +14,9 @@ import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
 import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
 import org.opencv.core.Mat;
+import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
+import org.opencv.imgproc.Imgproc;
 import org.opencv.wechat_qrcode.WeChatQRCode;
 
 import java.util.ArrayList;
@@ -84,7 +86,7 @@ public class Qr1LandActivity extends CameraActivity implements CvCameraViewListe
             Log.d(TAG, "OpenCV library found inside package. Using it!");
             mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
         }
-//        weChatQRCode = WechatQr.init();;
+        weChatQRCode = WechatQr.init();;
     }
 
     @Override
@@ -111,19 +113,19 @@ public class Qr1LandActivity extends CameraActivity implements CvCameraViewListe
 
         points.clear();
         Mat rgba=inputFrame.rgba();
-//        List<String> results = weChatQRCode.detectAndDecode(inputFrame.gray(), points);
-//        //如果不需要绘制方框，可以调用这个重载函数
-//        //weChatQRCode.detectAndDecode(mat)
-//
-//        if (null != results && results.size() > 0) {
-//            Log.e(TAG, "识别的结果数量：" + results.size());
-//            for(int i=0,isize=results.size();i<isize;i++){
-//                Log.e(TAG,"=======>>>>>"+results.get(i));
-//                Rect rect = Imgproc.boundingRect(points.get(i));
-//                Imgproc.rectangle(rgba,rect,scalar,5);
-//                Imgproc.putText(rgba,results.get(i),rect.tl(),0,1,scalar);
-//            }
-//        }
+        List<String> results = weChatQRCode.detectAndDecode(inputFrame.gray(), points);
+        //如果不需要绘制方框，可以调用这个重载函数
+        //weChatQRCode.detectAndDecode(mat)
+
+        if (null != results && results.size() > 0) {
+            Log.e(TAG, "识别的结果数量：" + results.size());
+            for(int i=0,isize=results.size();i<isize;i++){
+                Log.e(TAG,"=======>>>>>"+results.get(i));
+                Rect rect = Imgproc.boundingRect(points.get(i));
+                Imgproc.rectangle(rgba,rect,scalar,5);
+                Imgproc.putText(rgba,results.get(i),rect.tl(),0,1,scalar);
+            }
+        }
 
         return rgba;
     }

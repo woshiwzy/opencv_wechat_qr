@@ -1,18 +1,18 @@
 {
   "buildFiles": [
-    "/Users/wangzy/Desktop/opencv_qr/opencv/libcxx_helper/../../../../software/android-sdk-macosx/ndk-bundle/build/cmake/platforms.cmake",
-    "/Users/wangzy/Desktop/opencv_qr/opencv/libcxx_helper/../../../../software/android-sdk-macosx/ndk-bundle/build/cmake/android.toolchain.cmake",
-    "/Users/wangzy/Desktop/opencv_qr/opencv/libcxx_helper/CMakeLists.txt"
+    "/Users/wangzy/software/android-sdk-macosx/ndk-bundle/build/cmake/platforms.cmake",
+    "/Users/wangzy/software/android-sdk-macosx/ndk-bundle/build/cmake/android.toolchain.cmake",
+    "/Users/wangzy/study/opencv/opencv_452/demos/opencv_qr/opencv/libcxx_helper/CMakeLists.txt"
   ],
   "cleanCommands": [
-    "/Users/wangzy/software/android-sdk-macosx/cmake/3.10.2.4988404/bin/cmake --build /Users/wangzy/Desktop/opencv_qr/opencv/.externalNativeBuild/cmake/debug/arm64-v8a --target clean"
+    "/Users/wangzy/software/android-sdk-macosx/cmake/3.10.2.4988404/bin/cmake --build /Users/wangzy/study/opencv/opencv_452/demos/opencv_qr/opencv/.externalNativeBuild/cmake/debug/arm64-v8a --target clean"
   ],
   "libraries": {
     "opencv_jni_shared-Debug-arm64-v8a": {
       "artifactName": "opencv_jni_shared",
-      "buildCommand": "/Users/wangzy/software/android-sdk-macosx/cmake/3.10.2.4988404/bin/cmake --build /Users/wangzy/Desktop/opencv_qr/opencv/.externalNativeBuild/cmake/debug/arm64-v8a --target opencv_jni_shared",
+      "buildCommand": "/Users/wangzy/software/android-sdk-macosx/cmake/3.10.2.4988404/bin/cmake --build /Users/wangzy/study/opencv/opencv_452/demos/opencv_qr/opencv/.externalNativeBuild/cmake/debug/arm64-v8a --target opencv_jni_shared",
       "abi": "arm64-v8a",
-      "output": "/Users/wangzy/Desktop/opencv_qr/opencv/.externalNativeBuild/cmake/debug/arm64-v8a/libopencv_jni_shared.a"
+      "output": "/Users/wangzy/study/opencv/opencv_452/demos/opencv_qr/opencv/.externalNativeBuild/cmake/debug/arm64-v8a/libopencv_jni_shared.a"
     }
   }
 }
