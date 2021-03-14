@@ -14,7 +14,6 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/opencv" />
             <option value="$PROJECT_DIR$/qrdemo" />
-            <option value="$PROJECT_DIR$/wechat_qr" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

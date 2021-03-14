@@ -29,7 +29,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_6">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/../../../opencv/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes" />
     <output-test url="file://$MODULE_DIR$/../../../opencv/build/intermediates/javac/debugUnitTest/compileDebugUnitTestJavaWithJavac/classes" />
     <exclude-output />
@@ -42,6 +42,7 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../opencv/build/generated/res/resValues/debug" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../opencv/build/generated/res/rs/debug" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../opencv/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../opencv/libcxx_helper" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/../../../opencv/.cxx" />
       <excludeFolder url="file://$MODULE_DIR$/../../../opencv/.externalNativeBuild" />
       <excludeFolder url="file://$MODULE_DIR$/../../../opencv/.gradle" />

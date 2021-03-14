@@ -1,4 +1,4 @@
-# Install script for directory: /Users/wangzy/Desktop/opencv_qr/opencv/libcxx_helper
+# Install script for directory: /Users/wangzy/study/opencv_452/demos/opencv_qr/opencv/libcxx_helper
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/wangzy/Desktop/opencv_qr/opencv/.externalNativeBuild/cmake/debug/arm64-v8a/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/wangzy/study/opencv_452/demos/opencv_qr/opencv/.externalNativeBuild/cmake/debug/arm64-v8a/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

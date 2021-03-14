@@ -1,3 +1,3 @@
-/Users/wangzy/Desktop/opencv_qr/opencv/.externalNativeBuild/cmake/debug/arm64-v8a/CMakeFiles/rebuild_cache.dir
-/Users/wangzy/Desktop/opencv_qr/opencv/.externalNativeBuild/cmake/debug/arm64-v8a/CMakeFiles/edit_cache.dir
-/Users/wangzy/Desktop/opencv_qr/opencv/.externalNativeBuild/cmake/debug/arm64-v8a/CMakeFiles/opencv_jni_shared.dir
+/Users/wangzy/study/opencv_452/demos/opencv_qr/opencv/.externalNativeBuild/cmake/debug/arm64-v8a/CMakeFiles/rebuild_cache.dir
+/Users/wangzy/study/opencv_452/demos/opencv_qr/opencv/.externalNativeBuild/cmake/debug/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/wangzy/study/opencv_452/demos/opencv_qr/opencv/.externalNativeBuild/cmake/debug/arm64-v8a/CMakeFiles/opencv_jni_shared.dir

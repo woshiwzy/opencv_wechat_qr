@@ -5,7 +5,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8062ac4fc52ff1ba11580d2fe443ea95/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8062ac4fc52ff1ba11580d2fe443ea95/AndroidManifest.xml" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.xm.permissions/XmPermissions/1.0.1/f22a069d190c91a32ac00891c9eaf7610da075bf/XmPermissions-1.0.1-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.xm.permissions/XmPermissions/1.0.1/c6fcf62ec327c7c715858e0f00f8b7f393b8af14/XmPermissions-1.0.1-sources.jar!/" />
     </SOURCES>

@@ -90,7 +90,7 @@ public class Qr1PortraitActivity extends CameraActivity implements CvCameraViewL
             mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
         }
 
-        weChatQRCode = WechatQr.init();
+        weChatQRCode = WechatQr.init(this);
 
     }
 

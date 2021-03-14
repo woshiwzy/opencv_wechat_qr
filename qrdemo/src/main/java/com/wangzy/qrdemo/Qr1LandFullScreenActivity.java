@@ -86,7 +86,7 @@ public class Qr1LandFullScreenActivity extends CameraActivity implements CvCamer
             Log.d(TAG, "OpenCV library found inside package. Using it!");
             mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
         }
-        weChatQRCode = WechatQr.init();;
+        weChatQRCode = WechatQr.init(this);
     }
 
     @Override
