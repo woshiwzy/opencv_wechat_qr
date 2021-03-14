@@ -1,5 +1,7 @@
 # opencv_wechat_qr
-best qr scan from opencv &amp; wechat 
+
+最强二维码扫码识别引擎诞diy...
+Best qr scan function from opencv & wechat...
 
 移植微信二维码扫码功能到Android上
 
