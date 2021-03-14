@@ -64,6 +64,7 @@ public class Qr1LandActivity extends CameraActivity implements CvCameraViewListe
         setContentView(R.layout.qr1_land);
 
         mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.tutorial1_activity_java_surface_view);
+        mOpenCvCameraView.mScale=2;
         mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
         mOpenCvCameraView.setCvCameraViewListener(this);
 
@@ -113,7 +114,12 @@ public class Qr1LandActivity extends CameraActivity implements CvCameraViewListe
 
         points.clear();
         Mat rgba=inputFrame.rgba();
+
+
+
         List<String> results = weChatQRCode.detectAndDecode(inputFrame.gray(), points);
+
+
         //如果不需要绘制方框，可以调用这个重载函数
         //weChatQRCode.detectAndDecode(mat)
 
