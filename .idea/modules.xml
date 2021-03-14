@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/opencv_qr.iml" filepath="$PROJECT_DIR$/.idea/modules/opencv_qr.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/opencv/opencv_qr.opencv.iml" filepath="$PROJECT_DIR$/.idea/modules/opencv/opencv_qr.opencv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/qrdemo/opencv_qr.qrdemo.iml" filepath="$PROJECT_DIR$/.idea/modules/qrdemo/opencv_qr.qrdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/wechat_qr/opencv_qr.wechat_qr.iml" filepath="$PROJECT_DIR$/.idea/modules/wechat_qr/opencv_qr.wechat_qr.iml" />
     </modules>
   </component>

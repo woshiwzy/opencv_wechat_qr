@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/buttonDefault"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="横屏扫描" />
+
+    <Button
+        android:id="@+id/buttonDefaultFullScreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="横屏扫描全屏" />
+
+    <Button
+        android:id="@+id/buttonPortrait"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="竖屏扫描" />
+
+</LinearLayout>

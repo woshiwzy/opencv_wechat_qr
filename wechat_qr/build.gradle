@@ -8,6 +8,11 @@ android {
         targetSdkVersion 28
         versionCode 301
         versionName "3.01"
+
+        ndk {
+            abiFilters "armeabi-v7a","arm64-v8a","x86","x86_64"
+        }
+
     }
     buildTypes {
         release {
@@ -15,6 +20,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
     sourceSets {
         main {
             java.srcDirs = ['/Users/wangzy/study/opencv_452/opencv/samples/android/tutorial-1-camerapreview/src']
