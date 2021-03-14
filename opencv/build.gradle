@@ -4,11 +4,11 @@ def openCVersionName = "4.5.2-pre"
 def openCVersionCode = ((4 * 100 + 5) * 100 + 2) * 10 + 0
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 29
 
         versionCode openCVersionCode
         versionName openCVersionName

@@ -185,7 +185,7 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
                         mScale = Math.min(((float)height)/mFrameHeight, ((float)width)/mFrameWidth);
                     else
                         mScale = 0;
-                    //----原生bug带么结束
+                    //----原生bug代码结束
 
 
 

@@ -66,7 +66,7 @@ public class Qr1LandActivity extends CameraActivity implements CvCameraViewListe
         mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
         mOpenCvCameraView.setCvCameraViewListener(this);
 
-        Log.e(TAG, "是否缩放" + (mOpenCvCameraView.mScale == 0 ? "不缩放" : "缩放"));
+        Log.e(TAG, "是否缩放:" + (mOpenCvCameraView.mScale == 0 ? "不缩放" : "缩放"));
 
     }
 
@@ -112,12 +112,11 @@ public class Qr1LandActivity extends CameraActivity implements CvCameraViewListe
 
     public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
 
+
         points.clear();
         Mat rgba = inputFrame.rgba();
 
-
         List<String> results = weChatQRCode.detectAndDecode(inputFrame.gray(), points);
-
 
         //如果不需要绘制方框，可以调用这个重载函数
         //weChatQRCode.detectAndDecode(mat)
@@ -125,7 +124,7 @@ public class Qr1LandActivity extends CameraActivity implements CvCameraViewListe
         if (null != results && results.size() > 0) {
             Log.e(TAG, "识别的结果数量：" + results.size());
             for (int i = 0, isize = results.size(); i < isize; i++) {
-                Log.e(TAG, "=======>>>>>" + results.get(i));
+//                Log.e(TAG, "=======>>>>>" + results.get(i));
                 Rect rect = Imgproc.boundingRect(points.get(i));
                 Imgproc.rectangle(rgba, rect, scalar, 5);
                 Imgproc.putText(rgba, results.get(i), rect.tl(), 0, 1, scalar);
