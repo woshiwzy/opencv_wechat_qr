@@ -11,3 +11,6 @@ Complile WeChat Qr Scan engine with Android
 
 请使用Master 分支
 Please use master branch
+
+文章链接
+https://blog.csdn.net/wang382758656/article/details/114762661
