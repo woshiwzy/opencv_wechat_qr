@@ -1,6 +1,6 @@
 Opencv/build/
 wechat_qr/build/
-
+qrdemo/release 
 # Built application 文件
 *.apk
 *.ap_

@@ -1,5 +1,5 @@
 include ':qrdemo'
-include ':wechat_qr'
+//include ':wechat_qr'
 include ':opencv'
 
 
