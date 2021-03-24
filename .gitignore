@@ -3,8 +3,6 @@ wechat_qr/build/
 qrdemo/release/
 
 # Built application 文件
-*.apk
-*.ap_
 
 # ART/Dalvik VM 文件
 *.dex
