@@ -14,3 +14,5 @@ Please use master branch
 
 文章链接
 https://blog.csdn.net/wang382758656/article/details/114762661
+
+[演示apk下载](https://github.com/woshiwzy/opencv_wechat_qr/blob/master/qrdemo-release.apk)
