@@ -69,7 +69,7 @@ public class Qr1PortraitActivity extends CameraActivity implements CvCameraViewL
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         setContentView(R.layout.qr1_portrait);
-        checkBoxCrop=findViewById(R.id.checkboxCrop);
+        checkBoxCrop = findViewById(R.id.checkboxCrop);
 
         mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.tutorial1_activity_java_surface_view);
         mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
@@ -155,8 +155,8 @@ public class Qr1PortraitActivity extends CameraActivity implements CvCameraViewL
         //旋转灰度图
         Imgproc.warpAffine(grayMat, dstGray, m, size);
         if (checkBoxCrop.isChecked()) {
-
-            int squreWidth = 200;//这个值不要设置得太大，否则出边界了
+            int finalWidth = 200;
+            int squreWidth = finalWidth > dstRgb.width() ? dstRgb.width() : finalWidth;//这个值不要设置得太大，否则出边界了
             Mat centerMat = SqureTool.centerRectDraw2Cop(dstRgb, squreWidth);
             List<String> results = weChatQRCode.detectAndDecode(centerMat, points);//灰度图帧率更高
             SqureTool.centerRectDraw2(dstRgb, squreWidth);

@@ -122,7 +122,8 @@ public class Qr1LandActivity extends CameraActivity implements CvCameraViewListe
         //weChatQRCode.detectAndDecode(mat)
         if (checkboxCrop.isChecked()) {
 
-            int squreWidth = 400;//这个值不要设置得太大，否则出边界了
+            int finalWidth=400;
+            int squreWidth = finalWidth>rgba.width()?rgba.width():finalWidth;//这个值不要设置得太大，否则出边界了
             Mat centerMat = SqureTool.centerRectDraw2Cop(rgba, squreWidth);
             List<String> results = weChatQRCode.detectAndDecode(centerMat, points);//灰度图帧率更高
             SqureTool.centerRectDraw2(rgba, squreWidth);
