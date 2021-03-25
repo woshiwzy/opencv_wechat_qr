@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.SurfaceView;
 import android.view.WindowManager;
+import android.widget.CheckBox;
 
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraActivity;
@@ -31,6 +32,7 @@ public class Qr1PortraitActivity extends CameraActivity implements CvCameraViewL
     private CameraBridgeViewBase mOpenCvCameraView;
     private boolean mIsJavaCamera = true;
     private MenuItem mItemSwitchCamera = null;
+    private CheckBox checkBoxCrop;
 
 
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
@@ -67,6 +69,8 @@ public class Qr1PortraitActivity extends CameraActivity implements CvCameraViewL
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         setContentView(R.layout.qr1_portrait);
+        checkBoxCrop=findViewById(R.id.checkboxCrop);
+
         mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.tutorial1_activity_java_surface_view);
         mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
         mOpenCvCameraView.setCvCameraViewListener(this);
@@ -120,14 +124,14 @@ public class Qr1PortraitActivity extends CameraActivity implements CvCameraViewL
 
     Mat m = null;
 
-    Size size=null;
+    Size size = null;
 
     public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
         points.clear();
-        if(null!=dstGray){
+        if (null != dstGray) {
             dstGray.release();
         }
-        if(null!=dstRgb){
+        if (null != dstRgb) {
             dstRgb.release();
         }
 
@@ -142,25 +146,48 @@ public class Qr1PortraitActivity extends CameraActivity implements CvCameraViewL
             //如果只处理彩图，就只需要创建和处理dstRgb，如果只需要处理灰度图，就只需要创建和处理dstGray
             dstRgb = new Mat(rgba.cols(), rgba.rows(), rgba.type());//接受旋转后的彩色图
             dstGray = new Mat(rgba.cols(), rgba.rows(), rgba.type());//接受旋转后的灰度图
-            size=new Size(rgba.cols(), rgba.rows());
+            size = new Size(rgba.cols(), rgba.rows());
         }
 
         //如果只处理彩图，就只需要创建和处理dstRgb，如果只需要处理灰度图，就只需要创建和处理dstGray
         //旋转原彩图
-        Imgproc.warpAffine(rgba, dstRgb, m,size );
+        Imgproc.warpAffine(rgba, dstRgb, m, size);
         //旋转灰度图
-        Imgproc.warpAffine(grayMat, dstGray, m,size);
-        //传入到Opencv识别引擎
-        List<String> results = weChatQRCode.detectAndDecode(dstGray, points);//灰度图帧率更高
-//        List<String> results = weChatQRCode.detectAndDecode(dstRgb, points);//原彩帧率低一些
+        Imgproc.warpAffine(grayMat, dstGray, m, size);
+        if (checkBoxCrop.isChecked()) {
 
-        if (null != results && results.size() > 0) {
-            Log.e(TAG, "识别的结果数量：" + results.size());
-            for (int i = 0, isize = results.size(); i < isize; i++) {
-                Rect rect = Imgproc.boundingRect(points.get(i));
-                Imgproc.rectangle(dstRgb, rect, scalar, 5);
-                Imgproc.putText(dstRgb, results.get(i), rect.tl(), 0, 1, scalar);
+            int squreWidth = 200;//这个值不要设置得太大，否则出边界了
+            Mat centerMat = SqureTool.centerRectDraw2Cop(dstRgb, squreWidth);
+            List<String> results = weChatQRCode.detectAndDecode(centerMat, points);//灰度图帧率更高
+            SqureTool.centerRectDraw2(dstRgb, squreWidth);
+            centerMat.release();
+//        List<String> results = weChatQRCode.detectAndDecode(dstRgb, points);//原彩帧率低一些
+            if (null != results && results.size() > 0) {
+                //裁剪后位置要加上偏移
+                int delTaX = (dstRgb.width() - squreWidth) / 2;
+                int delTaY = (dstRgb.height() - squreWidth) / 2;
+                Log.e(TAG, "识别的结果数量：" + results.size());
+                for (int i = 0, isize = results.size(); i < isize; i++) {
+                    Rect rect = Imgproc.boundingRect(points.get(i));
+                    rect.x = rect.x + delTaX;
+                    rect.y = rect.y + delTaY;
+                    Imgproc.rectangle(dstRgb, rect, scalar, 5);
+                    Imgproc.putText(dstRgb, results.get(i), rect.tl(), 0, 1, scalar);
+                }
             }
+        } else {
+            List<String> results = weChatQRCode.detectAndDecode(dstRgb, points);//灰度图帧率更高
+            //传入到Opencv识别引擎
+//        List<String> results = weChatQRCode.detectAndDecode(dstRgb, points);//原彩帧率低一些
+            if (null != results && results.size() > 0) {
+                Log.e(TAG, "识别的结果数量：" + results.size());
+                for (int i = 0, isize = results.size(); i < isize; i++) {
+                    Rect rect = Imgproc.boundingRect(points.get(i));
+                    Imgproc.rectangle(dstRgb, rect, scalar, 5);
+                    Imgproc.putText(dstRgb, results.get(i), rect.tl(), 0, 1, scalar);
+                }
+            }
+
         }
         //返回原彩图旋转后的图
         return dstRgb;

@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.SurfaceView;
 import android.view.WindowManager;
+import android.widget.CheckBox;
 
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraActivity;
@@ -29,6 +30,7 @@ public class Qr1LandActivity extends CameraActivity implements CvCameraViewListe
     private CameraBridgeViewBase mOpenCvCameraView;
     private boolean mIsJavaCamera = true;
     private MenuItem mItemSwitchCamera = null;
+    private CheckBox checkboxCrop;
 
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
         @Override
@@ -58,13 +60,13 @@ public class Qr1LandActivity extends CameraActivity implements CvCameraViewListe
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        Log.i(TAG, "called onCreate");
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.qr1_land);
-        mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.tutorial1_activity_java_surface_view);
+        mOpenCvCameraView = findViewById(R.id.tutorial1_activity_java_surface_view);
         mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
         mOpenCvCameraView.setCvCameraViewListener(this);
+        checkboxCrop = findViewById(R.id.checkboxCrop);
 
         Log.e(TAG, "是否缩放:" + (mOpenCvCameraView.mScale == 0 ? "不缩放" : "缩放"));
 
@@ -110,25 +112,47 @@ public class Qr1LandActivity extends CameraActivity implements CvCameraViewListe
     List<Mat> points = new ArrayList<>();
     Scalar scalar = new Scalar(255, 255, 0, 0);
 
-    public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
 
+    public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
 
         points.clear();
         Mat rgba = inputFrame.rgba();
 
-        List<String> results = weChatQRCode.detectAndDecode(inputFrame.gray(), points);
-
         //如果不需要绘制方框，可以调用这个重载函数
         //weChatQRCode.detectAndDecode(mat)
+        if (checkboxCrop.isChecked()) {
 
-        if (null != results && results.size() > 0) {
-            Log.e(TAG, "识别的结果数量：" + results.size());
-            for (int i = 0, isize = results.size(); i < isize; i++) {
-//                Log.e(TAG, "=======>>>>>" + results.get(i));
-                Rect rect = Imgproc.boundingRect(points.get(i));
-                Imgproc.rectangle(rgba, rect, scalar, 5);
-                Imgproc.putText(rgba, results.get(i), rect.tl(), 0, 1, scalar);
+            int squreWidth = 400;//这个值不要设置得太大，否则出边界了
+            Mat centerMat = SqureTool.centerRectDraw2Cop(rgba, squreWidth);
+            List<String> results = weChatQRCode.detectAndDecode(centerMat, points);//灰度图帧率更高
+            SqureTool.centerRectDraw2(rgba, squreWidth);
+            centerMat.release();
+//        List<String> results = weChatQRCode.detectAndDecode(dstRgb, points);//原彩帧率低一些
+            if (null != results && results.size() > 0) {
+                //裁剪后位置要加上偏移
+                int delTaX = (rgba.width() - squreWidth) / 2;
+                int delTaY = (rgba.height() - squreWidth) / 2;
+                Log.e(TAG, "识别的结果数量：" + results.size());
+                for (int i = 0, isize = results.size(); i < isize; i++) {
+                    Rect rect = Imgproc.boundingRect(points.get(i));
+                    rect.x = rect.x + delTaX;
+                    rect.y = rect.y + delTaY;
+                    Imgproc.rectangle(rgba, rect, scalar, 5);
+                    Imgproc.putText(rgba, results.get(i), rect.tl(), 0, 1, scalar);
+                }
             }
+
+        } else {
+            List<String> results = weChatQRCode.detectAndDecode(inputFrame.gray(), points);
+            if (null != results && results.size() > 0) {
+                Log.e(TAG, "识别的结果数量：" + results.size());
+                for (int i = 0, isize = results.size(); i < isize; i++) {
+                    Rect rect = Imgproc.boundingRect(points.get(i));
+                    Imgproc.rectangle(rgba, rect, scalar, 5);
+                    Imgproc.putText(rgba, results.get(i), rect.tl(), 0, 1, scalar);
+                }
+            }
+
         }
 
         return rgba;
