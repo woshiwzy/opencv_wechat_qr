@@ -20,3 +20,5 @@ https://blog.csdn.net/wang382758656/article/details/114762661
 效果图
 
 ![image](https://github.com/woshiwzy/opencv_wechat_qr/blob/master/demo.png)
+![image](https://github.com/woshiwzy/opencv_wechat_qr/blob/master/hc.png)
+![image](https://github.com/woshiwzy/opencv_wechat_qr/blob/master/vc.png)
