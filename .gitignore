@@ -1,7 +1,7 @@
 Opencv/build/
 wechat_qr/build/
 qrdemo/release/
-
+.gradle/
 # Built application 文件
 
 # ART/Dalvik VM 文件
