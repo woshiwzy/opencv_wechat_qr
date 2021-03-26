@@ -1,5 +1,6 @@
 # opencv_wechat_qr
 
+armeabi_v7a,arm64_v8a,x86,x84_64 四个品台so全部修复
 so lib work on armeabi_v7a,arm64_v8a,x86,x84_64 work well
 
 
