@@ -1,5 +1,8 @@
 # opencv_wechat_qr
 
+so lib work on armeabi_v7a,arm64_v8a,x86,x84_64 work well
+
+
 最强二维码扫码识别引擎诞diy...
 
 Best qr scan function from opencv & wechat...
