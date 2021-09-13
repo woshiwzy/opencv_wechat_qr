@@ -22,7 +22,10 @@ https://blog.csdn.net/wang382758656/article/details/114762661
 
 [演示apk下载](https://github.com/woshiwzy/opencv_wechat_qr/blob/master/qrdemo-release.apk)
 
-效果图
+新版本的Android Studio 导入项目可能导致so加载错误，建议arm64-v8a下的包用(if_error_use_this_lib)libopencv_java4.so替代之前的
+for unkown reason new android studio version will cause so link error please use (if_error_use_this_lib)libopencv_java4.so repalce before so under folder arm64-v8a
+
+效果
 
 ![image](https://github.com/woshiwzy/opencv_wechat_qr/blob/master/demo.png)
 ![image](https://github.com/woshiwzy/opencv_wechat_qr/blob/master/hc.png)
