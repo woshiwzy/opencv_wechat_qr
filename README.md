@@ -27,6 +27,6 @@ for unkown reason new android studio version will cause so link error please use
 
 效果
 
-![image](https://github.com/woshiwzy/opencv_wechat_qr/blob/master/demo.png)
-![image](https://github.com/woshiwzy/opencv_wechat_qr/blob/master/hc.png)
-![image](https://github.com/woshiwzy/opencv_wechat_qr/blob/master/vc.png)
+![image](./demo.png)
+![image](./hc.png)
+![image](./vc.png)
